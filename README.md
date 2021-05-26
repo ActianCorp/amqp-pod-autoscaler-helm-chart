@@ -33,6 +33,7 @@ The following table lists the configurable parameters of the amqp-pod-autoscaler
 | `podAnnotations` | pod annotations | {} |
 | `resources` | set resource limits | {} |
 | `amqp.managementUrl` | rabbitmq management url ex: http://rabbitmq-rabbitmq-ha.default.svc.cluster.local:15672 | nil |
+| `amqp.host` | rabbitmq host | nil |
 | `amqp.username` | rabbitmq username | nil |
 | `amqp.password` | rabbitmq password | nil |
 | `worker.deploymentLabel` | identifier label used for the worker deployment(s) | integration-manager-worker |
