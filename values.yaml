@@ -31,6 +31,7 @@ revisionHistoryLimit: 10
 existingAutoscalerSecret:
 existingRabbitSecret:
 # Must have the keys:
+#   rabbitmq-host
 #   rabbitmq-username
 #   rabbitmq-password
 replicaCount: 1
@@ -44,6 +45,7 @@ amqp:
 #  # Set managementUrl to http://rabbitmq-rabbitmq-ha.default.svc.cluster.local:15672 if using helm rabbitmq-ha
   managementUrl:
 #  # Set if not using existingRabbitSecret
+  host:
   username:
   password:
 worker:
