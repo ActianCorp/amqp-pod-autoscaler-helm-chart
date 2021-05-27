@@ -15,9 +15,6 @@ data:
     {{- if .Values.amqp.sslKeyStore }}
     queue.ssl.key-store={{ .Values.amqp.sslKeyStore }}
     {{- end}}
-    {{- if .Values.amqp.sslKeyStorePassword }}
-    queue.ssl.key-store-password={{ .Values.amqp.sslKeyStorePassword }}
-    {{- end}}
     queue.ssl.key-store-type={{ .Values.amqp.sslKeyStoreType }}
     queue.ssl.protocol={{ .Values.amqp.sslProtocol }}    
 
