@@ -51,8 +51,8 @@ amqp:
   port: 5672
   connectionTimeout: 20
   sslEnabled: false
-  sslKeyStore: rabbitmq-security/keycert.p12
-  sslKeyStorePassword: changeit
+  sslKeyStore:
+  sslKeyStorePassword:
   sslKeyStoreType: PKCS12
   sslProtocol: TLSv1.2
 worker:
