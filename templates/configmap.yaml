@@ -9,12 +9,17 @@ data:
     queue.host=${rabbitmq-host}
     queue.username=${rabbitmq-username}
     queue.password=${rabbitmq-password}
+    queue.port={{ .Values.amqp.port }}
+    queue.connectionTimeout={{ .Values.amqp.connectionTimeout }}
+    queue.ssl.enabled={{ .Values.amqp.sslEnabled }}
+    {{- if .Values.amqp.sslKeyStore }}
+    queue.ssl.key-store={{ .Values.amqp.sslKeyStore }}
+    {{- end}}
+    queue.ssl.key-store-type={{ .Values.amqp.sslKeyStoreType }}
+    queue.ssl.protocol={{ .Values.amqp.sslProtocol }}    
 
     worker.deployment.label={{ .Values.worker.deploymentLabel }}
     autoscale.monitoring.rate={{ .Values.autoscale.monitoringRate }}
-
-    # Integration Manager Configuration
-    actian.im.url={{ .Values.actian.im.url }}
 
     {{- if .Values.extraConfig }}
     {{ .Values.extraConfig | indent 4 | trim }}

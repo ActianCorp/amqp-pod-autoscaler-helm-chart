@@ -44,21 +44,20 @@ resources: {}
 amqp:
 #  # Set managementUrl to http://rabbitmq-rabbitmq-ha.default.svc.cluster.local:15672 if using helm rabbitmq-ha
   managementUrl:
-#  # Set if not using existingRabbitSecret
+#  # Set host, username & password if not using existingRabbitSecret
   host:
   username:
   password:
+  port: 5672
+  connectionTimeout: 20
+  sslEnabled: false
+  sslKeyStore:
+  sslKeyStorePassword:
+  sslKeyStoreType: PKCS12
+  sslProtocol: TLSv1.2
 worker:
   deploymentLabel: integration-manager-worker
 autoscale:
   monitoringRate: 30000
-## Actian Integration Manager connection parameters
-actian:
-  im:
-    url:
-    clientId:
-    clientSecret:
-    deviceCode:
-    userCode:
 
 
