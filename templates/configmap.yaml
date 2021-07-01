@@ -19,6 +19,7 @@ data:
 
     worker.deployment.label={{ .Values.worker.deploymentLabel }}
     autoscale.monitoring.rate={{ .Values.autoscale.monitoringRate }}
+    some.other.value=hey
 
     {{- if .Values.extraConfig }}
     {{ .Values.extraConfig | indent 4 | trim }}
