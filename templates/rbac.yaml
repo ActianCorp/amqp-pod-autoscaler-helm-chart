@@ -7,6 +7,10 @@ metadata:
     app: amqp-pod-autoscaler
     chart: {{ template "amqp-pod-autoscaler.chart" . }}
     release: {{ .Release.Name }}
+  {{- with .Values.serviceAccount.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 
 ---
 kind: ClusterRole

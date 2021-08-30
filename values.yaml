@@ -60,4 +60,5 @@ worker:
 autoscale:
   monitoringRate: 30000
 
-
+serviceAccount:
+  annotations: {}
