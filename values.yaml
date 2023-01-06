@@ -37,6 +37,20 @@ existingRabbitSecret:
 replicaCount: 1
 pdb: {}
 nodeSelector: {}
+podSecurityContext: {}
+#  fsGroup: 2000
+#  runAsNonRoot: true
+securityContext: {}
+#  # capabilities:
+#  #   drop:
+#  #   - ALL
+#  privileged: false
+#  allowPrivilegeEscalation: false
+#  runAsUser: 1000
+#  runAsGroup: 3000
+#  #fsGroupChangePolicy: "OnRootMismatch"
+#  runAsNonRoot: true
+#  readOnlyRootFilesystem: true
 extraLabels: {}
 podAnnotations: {}
 resources: {}

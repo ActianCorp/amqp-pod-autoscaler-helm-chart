@@ -42,10 +42,14 @@ spec:
         - name: {{ . }}
       {{- end }}
       {{- end }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: amqp-pod-autoscaler
           image: {{ .Values.image }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
           resources:
             {{ toYaml .Values.resources | indent 12 | trim }}
           livenessProbe:
