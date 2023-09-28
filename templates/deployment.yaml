@@ -36,6 +36,10 @@ spec:
       nodeSelector:
         {{ .Values.nodeSelector | toYaml | indent 8 | trim }}
       {{- end }}
+      {{- if .Values.tolerations }}  
+      tolerations:
+        {{ .Values.tolerations | toYaml | indent 8 | trim }}
+      {{- end }}    
       {{- if .Values.imagePullSecrets }}
       imagePullSecrets:
       {{- range .Values.imagePullSecrets }}
