@@ -36,7 +36,7 @@ existingRabbitSecret:
 #   rabbitmq-password
 replicaCount: 1
 pdb: {}
-nodeSelector: 2
+nodeSelector: {}
 tolerations: []
 # - key: "example-key"
 #   operator: "Exists"
