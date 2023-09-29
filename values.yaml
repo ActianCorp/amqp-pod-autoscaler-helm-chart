@@ -37,6 +37,10 @@ existingRabbitSecret:
 replicaCount: 1
 pdb: {}
 nodeSelector: {}
+tolerations: []
+# - key: "example-key"
+#   operator: "Exists"
+#   effect: "NoSchedule"
 podSecurityContext: {}
 #  fsGroup: 2000
 #  runAsNonRoot: true
