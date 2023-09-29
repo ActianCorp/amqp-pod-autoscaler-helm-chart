@@ -31,13 +31,13 @@ spec:
       affinity:
         {{ .Values.affinity | toYaml | indent 8 | trim }}
       {{- end }}
-      serviceAccountName: {{ template "amqp-pod-autoscaler.fullname" . }}
-      {{- if .Values.nodeSelector }}
+          {{- if .Values.nodeSelector }}
       nodeSelector:
         {{ .Values.nodeSelector | toYaml | indent 8 | trim }}
       {{- end }}
       {{- if .Values.tolerations }}  
       tolerations:
+      serviceAccountName: {{ template "amqp-pod-autoscaler.fullname" . }}
         {{ .Values.tolerations | toYaml | indent 8 | trim }}
       {{- end }}    
       {{- if .Values.imagePullSecrets }}
