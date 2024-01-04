@@ -6,7 +6,7 @@ data:
   application.properties: |
     #AMQP
     queue.management-url={{ default "none" .Values.amqp.managementUrl }}
-    queue.host=${rabbitmq-host}
+    queue.host={{ .Values.amqp.host }}
     queue.username=${rabbitmq-username}
     queue.password=${rabbitmq-password}
     queue.port={{ .Values.amqp.port }}

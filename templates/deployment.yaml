@@ -89,8 +89,6 @@ spec:
         secret:
           secretName: {{ .Values.existingRabbitSecret }}
           items:
-          - key: rabbitmq-host
-            path: rabbitmq-host
           - key: rabbitmq-username
             path: rabbitmq-username
           - key: rabbitmq-password
