@@ -13,7 +13,7 @@ metadata:
   {{- end }}
 
 ---
-kind: ClusterRole
+kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: {{ template "amqp-pod-autoscaler.fullname" . }}-deployment-updater
@@ -23,11 +23,13 @@ metadata:
     release: {{ .Release.Name }}
 rules:
   - apiGroups: ["apps", "extensions"]
-    resources: ["deployments", "deployments/scale"]
+    resources: ["deployments", "deployments/scale", "deployments/status", "replicasets", "replicsets/scale", "replicasets/status"]
     verbs: ["get", "update", "list"]
-
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch"]
 ---
-kind: ClusterRoleBinding
+kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: {{ template "amqp-pod-autoscaler.fullname" . }}-update-deployments
@@ -38,8 +40,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: {{ template "amqp-pod-autoscaler.fullname" . }}
-    namespace: {{ .Release.Namespace }}
 roleRef:
-  kind: ClusterRole
+  kind: Role
   name: {{ template "amqp-pod-autoscaler.fullname" . }}-deployment-updater
   apiGroup: rbac.authorization.k8s.io
